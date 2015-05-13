@@ -7,6 +7,7 @@
 		"test/helper/element_handler.js",
 		"test/core.js",
 		"test/_extend.js",
-		"test/attr.js"
+		"test/attr.js",
+		"data:text/javascript;base64,"
 	]
 }
