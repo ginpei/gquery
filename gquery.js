@@ -15,13 +15,27 @@ window.gQuery = (function() {
 	$$._initialize = function(selector) {
 		var that = this;
 
-		var nodes = that.nodeList = document.querySelectorAll(selector);
+		var nodes = this.query(selector);
 		that.length = nodes.length;
 		f_forEach.call(nodes, function(el, index) {
 			that[index] = el;
 		});
 
 		return that;
+	};
+
+	$$.query = function(arg0, context) {
+		var nodes;
+		if (typeof arg0 === 'string') {
+			nodes = (context || document).querySelectorAll(arg0);
+		}
+		else if ('length' in arg0) {
+			nodes = arg0;
+		}
+		else {
+			nodes = [arg0];
+		}
+		return nodes;
 	};
 
 	$$.forEach = function(fn) {
