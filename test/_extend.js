@@ -12,4 +12,8 @@ describe('gQuery.extend()', function() {
 		expect(source.b).toBe(12);
 		expect(source.c).toBe(13);
 	});
+
+	it('returns source object', function() {
+		expect(returned).toBe(source);
+	});
 });
