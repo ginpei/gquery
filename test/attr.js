@@ -1,18 +1,9 @@
 describe('attr()', function() {
 	var $el;
 	beforeEach(function() {
-		var elRoot = elem('div');
-		elRoot.id = 'root';
-
-		var elChild1 = elem('div');
-		elChild1.id = 'child1'
-		elRoot.appendChild(elChild1);
-
-		var elChild2 = elem('div');
-		elChild2.id = 'child2'
-		elRoot.appendChild(elChild2);
-
-		$el = gQuery('div', elRoot);
+		$el = gQuery(test_helper.elem(
+			'<div id="child1"></div>' +
+			'<div id="child2"></div>'));
 	});
 
 	describe('getter', function() {

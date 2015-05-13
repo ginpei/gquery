@@ -1,34 +1,30 @@
 describe('Core', function() {
+	var el, elChild1, elChild1_1, elChild2;
+	beforeEach(function() {
+		el = test_helper.elem(
+			'<div id="root">' +
+				'<div id="child1">' +
+					'<div id="child1_1"></div>' +
+				'</div>' +
+				'<div id="child2"></div>' +
+			'</div>');
+		elChild1 = el.querySelector('#child1');
+		elChild1_1 = el.querySelector('#child1_1');
+		elChild2 = el.querySelector('#child2');
+	});
+
 	describe('node collection', function() {
-		var elRoot, elChild1, elChild1_1, elChild2;
-		beforeEach(function() {
-			elRoot = elem('div');
-			elRoot.id = 'root';
-
-			elChild1 = elem('div');
-			elChild1.id = 'child1'
-			elRoot.appendChild(elChild1);
-
-			elChild1_1 = elem('div');
-			elChild1_1.id = 'child1-1'
-			elChild1.appendChild(elChild1_1);
-
-			elChild2 = elem('div');
-			elChild2.id = 'child2'
-			elRoot.appendChild(elChild2);
-		});
-
 		it('finds from specified context', function() {
-			expect(gQuery('#child1', elRoot)[0]).toBe(elChild1);
+			expect(gQuery('#child1', el)[0]).toBe(elChild1);
 		});
 
 		it('has the count of elements', function() {
-			var $els = gQuery('div', elRoot);
+			var $els = gQuery('div', el);
 			expect($els.length).toBe(3);
 		});
 
 		it('has each elements in order', function() {
-			var $els = gQuery('div', elRoot);
+			var $els = gQuery('div', el);
 			expect($els[0]).toBe(elChild1);
 			expect($els[1]).toBe(elChild1_1);
 			expect($els[2]).toBe(elChild2);
@@ -50,20 +46,9 @@ describe('Core', function() {
 	});
 
 	describe('forEach()', function() {
-		var elRoot, elChild1, elChild2, $el, returned;
+		var $el;
 		beforeEach(function() {
-			elRoot = elem('div');
-			elRoot.id = 'root';
-
-			elChild1 = elem('div');
-			elChild1.id = 'child1'
-			elRoot.appendChild(elChild1);
-
-			elChild2 = elem('div');
-			elChild2.id = 'child2'
-			elRoot.appendChild(elChild2);
-
-			$el = gQuery('div', elRoot);
+			$el = gQuery('div', el);
 			returned = $el.forEach(function(el, index) {
 				el.setAttribute('data-index', index);
 			});
@@ -71,7 +56,8 @@ describe('Core', function() {
 
 		it('runs callback function for each elements with each index number', function() {
 			expect(elChild1.getAttribute('data-index')).toBe('0');
-			expect(elChild2.getAttribute('data-index')).toBe('1');
+			expect(elChild1_1.getAttribute('data-index')).toBe('1');
+			expect(elChild2.getAttribute('data-index')).toBe('2');
 		});
 
 		it('returns own self', function() {
