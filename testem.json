@@ -4,6 +4,7 @@
 		"gquery.js",
 		"fn/_extend.js",
 		"fn/attr.js",
+		"test/helper/element_handler.js",
 		"test/core.js",
 		"test/_extend.js",
 		"test/attr.js"

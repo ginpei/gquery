@@ -1,7 +1,3 @@
-function elem(tagName) {
-	return document.createElement(tagName);
-}
-
 describe('Core', function() {
 	describe('node collection', function() {
 		var elRoot, elChild1, elChild1_1, elChild2;
