@@ -49,3 +49,33 @@ describe('Constructor', function() {
 		expect(gQuery(document.querySelectorAll('body'))[0]).toBe(document.body);
 	});
 });
+
+describe('forEach()', function() {
+	var elRoot, elChild1, elChild2, $el, returned;
+	beforeEach(function() {
+		elRoot = elem('div');
+		elRoot.id = 'root';
+
+		elChild1 = elem('div');
+		elChild1.id = 'child1'
+		elRoot.appendChild(elChild1);
+
+		elChild2 = elem('div');
+		elChild2.id = 'child2'
+		elRoot.appendChild(elChild2);
+
+		$el = gQuery('div', elRoot);
+		returned = $el.forEach(function(el, index) {
+			el.setAttribute('data-index', index);
+		});
+	});
+
+	it('runs callback function for each elements with each index number', function() {
+		expect(elChild1.getAttribute('data-index')).toBe('0');
+		expect(elChild2.getAttribute('data-index')).toBe('1');
+	});
+
+	it('returns own self', function() {
+		expect(returned).toBe($el);
+	});
+});
