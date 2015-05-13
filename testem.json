@@ -2,14 +2,8 @@
 	"framework": "jasmine2",
 	"src_files": [
 		"gquery.js",
-		"fn/_extend.js",
-		"fn/attr.js",
-		"fn/on.js",
+		"fn/*.js",
 		"test/helper/element_handler.js",
-		"test/core.js",
-		"test/_extend.js",
-		"test/attr.js",
-		"test/on.js",
-		"data:text/javascript;base64,"
+		"test/*.js"
 	]
 }
