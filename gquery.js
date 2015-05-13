@@ -3,19 +3,19 @@ window.gQuery = (function() {
 	var $$ = $.fn = $.prototype;
 	var f_forEach = [].forEach;
 
-	function gQuery(selector) {
+	function gQuery(selector, context) {
 		if (this instanceof $) {
-			return this._initialize(selector);
+			return this._initialize(selector, context);
 		}
 		else {
-			return new $(selector);
+			return new $(selector, context);
 		}
 	}
 
-	$$._initialize = function(selector) {
+	$$._initialize = function(selector, context) {
 		var that = this;
 
-		var nodes = this.query(selector);
+		var nodes = this.query(selector, context);
 		that.length = nodes.length;
 		f_forEach.call(nodes, function(el, index) {
 			that[index] = el;
