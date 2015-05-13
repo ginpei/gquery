@@ -2,6 +2,8 @@
 	"framework": "jasmine2",
 	"src_files": [
 		"gquery.js",
-		"test/core.js"
+		"fn/_extend.js",
+		"test/core.js",
+		"test/_extend.js"
 	]
 }
