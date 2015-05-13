@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "./node_modules/testem/testem.js --port 3000"
+  },
+  "dependencies": {
+    "testem": "~0.8.3"
+  }
+}

@@ -1,0 +1,6 @@
+{
+	"framework": "jasmine2",
+	"src_files": [
+		"test/test.js"
+	]
+}
