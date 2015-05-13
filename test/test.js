@@ -3,6 +3,36 @@ function elem(tagName) {
 }
 
 describe('Constructor', function() {
+	var elRoot, elChild1, elChild1_1, elChild2;
+	beforeEach(function() {
+		elRoot = elem('div');
+		elRoot.id = 'root';
+
+		elChild1 = elem('div');
+		elChild1.id = 'child1'
+		elRoot.appendChild(elChild1);
+
+		elChild1_1 = elem('div');
+		elChild1_1.id = 'child1-1'
+		elChild1.appendChild(elChild1_1);
+
+		elChild2 = elem('div');
+		elChild2.id = 'child2'
+		elRoot.appendChild(elChild2);
+	});
+
+	it('has the count of elements', function() {
+		var $els = gQuery('div', elRoot);
+		expect($els.length).toBe(3);
+	});
+
+	it('has each elements in order', function() {
+		var $els = gQuery('div', elRoot);
+		expect($els[0]).toBe(elChild1);
+		expect($els[1]).toBe(elChild1_1);
+		expect($els[2]).toBe(elChild2);
+	});
+
 	it('finds the element by selector', function() {
 		expect(gQuery('body')[0]).toBe(document.body);
 	});
@@ -16,12 +46,6 @@ describe('Constructor', function() {
 	});
 
 	it('finds from specified context', function() {
-		var elRoot = elem('div');
-		elRoot.id = 'root';
-		var elChild = elem('div');
-		elChild.id = 'child'
-		elRoot.appendChild(elChild);
-
-		expect(gQuery('#child', elRoot)[0]).toBe(elChild);
+		expect(gQuery('#child1', elRoot)[0]).toBe(elChild1);
 	});
 });
