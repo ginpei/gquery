@@ -21,6 +21,10 @@ describe('Constructor', function() {
 		elRoot.appendChild(elChild2);
 	});
 
+	it('finds from specified context', function() {
+		expect(gQuery('#child1', elRoot)[0]).toBe(elChild1);
+	});
+
 	it('has the count of elements', function() {
 		var $els = gQuery('div', elRoot);
 		expect($els.length).toBe(3);
@@ -43,9 +47,5 @@ describe('Constructor', function() {
 
 	it('finds the element by NodeList', function() {
 		expect(gQuery(document.querySelectorAll('body'))[0]).toBe(document.body);
-	});
-
-	it('finds from specified context', function() {
-		expect(gQuery('#child1', elRoot)[0]).toBe(elChild1);
 	});
 });
