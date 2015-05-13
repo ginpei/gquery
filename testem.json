@@ -3,7 +3,9 @@
 	"src_files": [
 		"gquery.js",
 		"fn/_extend.js",
+		"fn/attr.js",
 		"test/core.js",
-		"test/_extend.js"
+		"test/_extend.js",
+		"test/attr.js"
 	]
 }

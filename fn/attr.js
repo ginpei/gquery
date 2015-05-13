@@ -7,7 +7,7 @@ gQuery.fn.attr = function(name, value) {
 	// setter
 	else {
 		this.forEach(function(el, index) {
-			el.setAttribute(value);
+			el.setAttribute(name, value);
 		});
 		return this;
 	}
