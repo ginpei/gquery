@@ -12,19 +12,9 @@ window.gQuery = (function() {
 		}
 	}
 
-	$$._initialize = function(selector, context) {
+	$$._initialize = function(arg0, context) {
 		var that = this;
 
-		var nodes = this.query(selector, context);
-		that.length = nodes.length;
-		f_forEach.call(nodes, function(el, index) {
-			that[index] = el;
-		});
-
-		return that;
-	};
-
-	$$.query = function(arg0, context) {
 		var nodes;
 		if (typeof arg0 === 'string') {
 			nodes = (context || document).querySelectorAll(arg0);
@@ -35,7 +25,13 @@ window.gQuery = (function() {
 		else {
 			nodes = [arg0];
 		}
-		return nodes;
+
+		that.length = nodes.length;
+		f_forEach.call(nodes, function(el, index) {
+			that[index] = el;
+		});
+
+		return that;
 	};
 
 	$$.forEach = function(fn) {
