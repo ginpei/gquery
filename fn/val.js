@@ -1,19 +1,10 @@
+// Dependences
+// prop
 gQuery.fn.val = function(value) {
-	// getter
 	if (arguments.length < 1) {
-		if (this.length > 1) {
-			var el = this[0];
-			return el.value;
-		}
-		// else {
-		// 	return undefined;
-		// }
+		return this.prop('value');
 	}
-	// setter
 	else {
-		this.forEach(function(el, index) {
-			el.value = value;
-		});
-		return this;
+		return this.prop('value', value);
 	}
 };
