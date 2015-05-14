@@ -116,7 +116,7 @@ gQuery.fn.on = function(type, listener) {
 gQuery.fn.prop = function(name, value) {
 	// getter
 	if (arguments.length < 2) {
-		if (this.length > 1) {
+		if (this.length > 0) {
 			var el = this[0];
 			return el[name];
 		}

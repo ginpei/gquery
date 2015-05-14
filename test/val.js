@@ -11,10 +11,16 @@ describe('val()', function() {
 		beforeEach(function() {
 			$el[0].value = 'abc-0';
 			$el[1].value = 'abc-1';
+		});
+
+		it('gets an attribute value from the only element', function() {
+			$el = gQuery($el[0]);
 			returned = $el.val();
+			expect(returned).toBe('abc-0');
 		});
 
 		it('gets an attribute value from the first element', function() {
+			returned = $el.val();
 			expect(returned).toBe('abc-0');
 		});
 
