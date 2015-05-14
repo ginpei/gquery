@@ -67,6 +67,16 @@ gQuery.fn.attr = function(name, value) {
 	}
 };
 
+gQuery.fn.find = function(selector) {
+	var els = [];
+	this.forEach(function(el) {
+		gQuery(selector, el).forEach(function(el) {
+			els.push(el);
+		});
+	});
+	return gQuery(els);
+};
+
 gQuery.fn.html = function(html) {
 	if (arguments.length < 1) {
 		if (this.length > 0) {
