@@ -4,10 +4,19 @@ window.test_helper = {
 		el.innerHTML = html;
 		var children = el.childNodes;
 		if (children.length > 1) {
-			return children;
+			var els = [];
+			var child=children[0];
+			while (child) {
+				el.removeChild(child);
+				els.push(child);
+				child = children[0];
+			}
+			return els;
 		}
 		else {
-			return children[0];
+			var child = children[0];
+			el.removeChild(child);
+			return child;
 		}
 	}
 };
