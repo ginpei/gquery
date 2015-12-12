@@ -43,6 +43,10 @@ describe('Core', function() {
 		it('finds the element by NodeList', function() {
 			expect(gQuery(document.querySelectorAll('body'))[0]).toBe(document.body);
 		});
+
+		it('creates empty instance by falsy value', function() {
+			expect(gQuery(null).length).toBe(0);
+		});
 	});
 
 	describe('forEach()', function() {

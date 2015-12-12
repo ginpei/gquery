@@ -19,11 +19,11 @@ window.gQuery = (function() {
 		if (typeof arg0 === 'string') {
 			nodes = (context || document).querySelectorAll(arg0);
 		}
-		else if ('length' in arg0) {
+		else if (arg0 && 'length' in arg0) {
 			nodes = arg0;
 		}
 		else {
-			nodes = [arg0];
+			nodes = (arg0 ? [arg0] : []);
 		}
 
 		that.length = nodes.length;
