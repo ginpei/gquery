@@ -1,7 +1,7 @@
 gQuery.fn.filter = function(selector) {
 	var els = [];
 	this.forEach(function(el) {
-		if (gQuery(el).is(selector)) {
+		if (el.matches(selector)) {
 			els.push(el);
 		}
 	});
