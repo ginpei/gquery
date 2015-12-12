@@ -21,7 +21,6 @@ describe('parent()', function() {
 
 	it('returns empty if elements have any parent nodes', function() {
 		var result = $elRoot.parent();
-		var result = $el.parent().parent();
 		expect(result.length).toBe(0);
 	});
 
