@@ -34,4 +34,22 @@ describe('attr()', function() {
 			expect(returned).toBe($el);
 		});
 	});
+
+	describe('multi setter', function() {
+		var returned;
+		beforeEach(function() {
+			returned = $el.attr({ 'data-foo':'abc', 'data-bar':'xyz' });
+		});
+
+		it('sets an attribute', function() {
+			expect($el[0].getAttribute('data-foo')).toBe('abc');
+			expect($el[1].getAttribute('data-foo')).toBe('abc');
+			expect($el[0].getAttribute('data-bar')).toBe('xyz');
+			expect($el[1].getAttribute('data-bar')).toBe('xyz');
+		});
+
+		it('returns own self', function() {
+			expect(returned).toBe($el);
+		});
+	});
 });
