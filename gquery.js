@@ -1,4 +1,5 @@
 window.gQuery = (function() {
+	var S_LENGTH = 'length';  // happy after minified
 	var $ = gQuery;
 	var $$ = $.fn = $.prototype;
 	var f_forEach = [].forEach;
@@ -21,7 +22,7 @@ window.gQuery = (function() {
 			nodes = (context || document).querySelectorAll(arg0);
 		}
 		// gQuery(document.querySelectorAll('#foo .bar'))
-		else if (arg0 && 'length' in arg0) {
+		else if (arg0 && S_LENGTH in arg0) {
 			nodes = arg0;
 		}
 		// gQuery(document.querySelector('#foo .bar'))
@@ -29,7 +30,7 @@ window.gQuery = (function() {
 			nodes = (arg0 ? [arg0] : []);
 		}
 
-		that.length = nodes.length;
+		that[S_LENGTH] = nodes[S_LENGTH];
 		f_forEach.call(nodes, function(el, index) {
 			that[index] = el;
 		});
