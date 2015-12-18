@@ -13,7 +13,7 @@ window.gQuery = (function() {
 	}
 
 	$$._initialize = function(arg0, context) {
-		var that = this;
+		var that = this;  // happy after minified
 
 		var nodes;
 		// gQuery('#foo .bar')
