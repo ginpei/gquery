@@ -16,12 +16,15 @@ window.gQuery = (function() {
 		var that = this;
 
 		var nodes;
+		// gQuery('#foo .bar')
 		if (typeof arg0 === 'string') {
 			nodes = (context || document).querySelectorAll(arg0);
 		}
+		// gQuery(document.querySelectorAll('#foo .bar'))
 		else if (arg0 && 'length' in arg0) {
 			nodes = arg0;
 		}
+		// gQuery(document.querySelector('#foo .bar'))
 		else {
 			nodes = (arg0 ? [arg0] : []);
 		}
