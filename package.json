@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "build": "./scripts/build.js",
     "test": "./node_modules/testem/testem.js --port 3000"
   },
   "dependencies": {
